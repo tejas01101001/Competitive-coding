@@ -95,3 +95,10 @@ int main()
     }
     return 0;
 }
+
+2)MAXXOR SUBARRAY:
+Insert prefix xors in the trie and query for maxxor 
+for each subarray ending with a[i]
+
+https://cses.fi/problemset/result/278806/
+
