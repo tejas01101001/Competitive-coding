@@ -117,3 +117,4 @@ S query(int l, int r)
 }
 
 Refer:https://codeforces.com/contest/380/submission/66448115
+Kadane algo with queries:https://www.codechef.com/viewsolution/30682984
