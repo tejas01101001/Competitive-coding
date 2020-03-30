@@ -11,6 +11,8 @@ void fact()
 }
 lli ncr(lli a,lli b)
 {
+    if(a<b||a<0||b<0)
+        return 0;
     return ((fac[a]*modi(fac[b],mod))%mod*modi(fac[a-b],mod))%mod;
 }
 int main()
