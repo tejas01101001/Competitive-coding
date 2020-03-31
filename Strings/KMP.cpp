@@ -2,54 +2,34 @@ int pi[100];
 
 void lps(string s)
 {
-    int m = int(s.si);
-    int k = 0;
-    int i = 1;
-    while (i < m)
+    int n = int(s.si);
+    for (int q = 1; q < n; q++)
     {
-        if (s[i] == s[k])
-        {
-            pi[i] = ++k;
-            i++;
-        }
-        else
-        {
-            if (k != 0)
-            {
-                k = pi[k - 1];
-            }
-            else
-            {
-                pi[i] = 0;
-                i++;
-            }
-        }
+        int k = pi[q - 1];
+
+        while (k > 0 && s[q] != s[k])
+            k = pi[k - 1];
+
+        pi[q] = k + (s[k] == s[q] ? 1 : 0);
     }
-    return;
 }
-bool kmp(string t, string p)
+
+vector<int> kmp_occurances(string t, string p)
 {
-    int n = int(t.si);
+    string s = p + '#' + t;
+    int n = int(s.si);
     int m = int(p.si);
-    int i = 0, j = 0;
-    while (i < n && j < m)
+
+    lps(s);
+    vector<int> v;
+
+    for (int i = m + 1; i < n; i++)
     {
-        if (t[i] == p[j])
+        if (pi[i] == m)
         {
-            i++;
-            j++;
-        }
-        else
-        {
-            if (j != 0)
-            {
-                j = pi[j - 1];
-            }
-            else
-                i++;
+            v.pb(i - 2 * m);
         }
     }
-    if (j == m)
-        return true;
-    return false;
+
+    return v;
 }
