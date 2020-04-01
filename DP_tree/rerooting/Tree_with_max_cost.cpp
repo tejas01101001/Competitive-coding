@@ -1,4 +1,4 @@
-https://codeforces.com/contest/1092/problem/F
+//https://codeforces.com/contest/1092/problem/F
 //https://codeforces.com/contest/1092/submission/74304035
 
 const int N = 2e5 + 5;
