@@ -1,6 +1,8 @@
 //BROWNIE TK
 
 #include <bits/stdc++.h>
+using namespace std;
+
 typedef long long int lli;
 typedef unsigned long long int ulli;
 typedef long double ldb;
@@ -13,16 +15,19 @@ using namespace __gnu_pbds;
 #define popb pop_back()
 #define pf push_front
 #define popf pop_front()
+
 #define si size()
 #define be begin()
 #define en end()
 #define all(v) v.be, v.en
+
 #define le length()
 #define mp make_pair
 #define mt make_tuple
 #define acc(v) accumulate(all(v), 0)
 #define F first
 #define S second
+
 #define pll pair<lli, lli>
 #define pii pair<int, int>
 #define pil pair<int, lli>
@@ -31,19 +36,34 @@ using namespace __gnu_pbds;
 #define fore(i, m, n) for (int i = m; i <= n; i++)
 #define rforz(i, n) for (int i = n - 1; i >= 0; i--)
 #define rfore(i, m, n) for (int i = n; i >= m; i--)
+
 #define deci(n) fixed << setprecision(n)
 #define high(n) __builtin_popcount(n)
 #define highll(n) __builtin_popcountll(n)
 #define parity(n) __builtin_parity(n)
 #define ctz(n) __builtin_ctz(n)
+
+#define bset(a, p) ((a) | (1ll << (p)))
+#define bchk(a, p) ((a) & (1ll << (p)))
+#define bxor(a, p) ((a) ^ (1ll << (p)));
+#define brem(a, p) (bchk(a, p) ? (bxor(a, p)) : (a))
+/*SOME BITMASK KNOWLEDGE
+1)x & (x - 1):sets the last one bit of x to zero
+power of two exactly when x & (x − 1) = 0.
+2)x & -x:sets all the one bits to zero, except last one bit
+3)x | (x - 1):inverts all the bits after the last one bit*/
+
 #define lb lower_bound
 #define ub upper_bound
 #define er equal_range
+
 #define findnot find_first_not_of
+
 #define maxe *max_element
 #define mine *min_element
-#define mod 1000000007
-#define mod2 998244353
+
+#define mod2 1000000007
+#define mod 998244353
 #define gcd __gcd
 #define kira ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 
@@ -61,7 +81,6 @@ using namespace __gnu_pbds;
 //2. find_by_order(k) : k-th element in the set
 #define ofk order_of_key
 #define fbo find_by_order
-using namespace std;
 
 /*STD funcions*/
 lli power(lli x, lli y, lli p)
@@ -72,18 +91,25 @@ lli power(lli x, lli y, lli p)
     {
         if (y & 1)
             res = (res * x) % p;
-        y = y >> 1; 
+        y = y >> 1;
         x = (x * x) % p;
     }
     return res;
 }
-lli modi(lli a, lli m)
-{
-    return power(a, m - 2, m);
-}
+lli modi(lli a, lli m) { return power(a, m - 2, m); }
+/*CODE BEGINS*/
+
 int main()
 {
     kira;
-    
+    int ntc;
+    cin >> ntc;
+    //ntc=1;
+    fore(tc, 1,ntc)
+    {
+        cout << "Case #" << tc << ": ";
+        
+
+    }
     return 0;
 }
