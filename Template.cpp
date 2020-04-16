@@ -9,6 +9,7 @@ using namespace std;
 using namespace __gnu_pbds;
 
 //========================TypeDefs===================================
+
 typedef long long int lli;
 typedef unsigned long long int ulli;
 typedef long double ldb;
