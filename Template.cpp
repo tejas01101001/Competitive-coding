@@ -1,5 +1,5 @@
 //https://codeforces.com/contest/..../problem/.
-//Author: BROWNIE TK
+//Author: BrownieTK
 
 #include <bits/stdc++.h>
 using namespace std;
