@@ -24,7 +24,7 @@ void modify(lli p, lli value)
 }
  
 lli query(lli l, lli r)
-{   // sum on interval [l, r)
+{   // sum on interval [l, r]
     lli res = 0;
     r++;
     for (l += n, r += n; l < r; l >>= 1, r >>= 1)
