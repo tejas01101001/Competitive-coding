@@ -1,6 +1,7 @@
-Co ordinate compression method:
-n Segments:
-l,r;
+//Co ordinate compression method:
+//n Segments:
+//l,r;
+
 vector<pair<lli,lli>>v;
 v.pb({l,+1});
 v.pb({r+1,-1});
