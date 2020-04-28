@@ -116,6 +116,7 @@ typedef pair<int, lli> pil;
 
 #define mod 1000000007
 #define mod2 998244353
+#define PI 3.1415926535897932384
 #define gcd __gcd
 #define kira ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 
