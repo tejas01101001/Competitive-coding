@@ -1,4 +1,4 @@
-//https://codeforces.com/contest/..../problem/.
+//https://codeforces.com/contest/1342/problem/A
 //Author: BrownieTK
 
 //#pragma GCC optimize("O3")
@@ -53,7 +53,7 @@ void _print(T t, V... v)
         cerr << ", ";
     _print(v...);
 }
-#ifndef ONLINE_JUDGE
+#ifdef local
 #define debug(x...)               \
     cerr << "[" << #x << "] = ["; \
     _print(x)
@@ -116,7 +116,6 @@ typedef pair<int, lli> pil;
 
 #define mod 1000000007
 #define mod2 998244353
-#define PI 3.1415926535897932384
 #define gcd __gcd
 #define kira ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 
@@ -142,7 +141,7 @@ auto clk = clock();
 mt19937_64 rang(chrono::high_resolution_clock::now().time_since_epoch().count());
 void run_time()
 {
-#ifndef ONLINE_JUDGE
+#ifdef local
     cout << endl;
     cout << "Time elapsed: " << (double)(clock() - clk) / CLOCKS_PER_SEC << endl;
 #endif
