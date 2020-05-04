@@ -37,7 +37,7 @@ void decompose(int s, int e)
     for (auto u : adj[node])
     {
         adj[u].erase(node);
-        decompose(u, s);
+        decompose(u,node);
     }
 }
 
