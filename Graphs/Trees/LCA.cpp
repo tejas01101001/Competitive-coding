@@ -1,13 +1,18 @@
 
 const int N = 4e5 + 5;
-int tlog[N];
+int tlog[N], dis[N], early[N];
+vector<vector<int>> v;
+int n, q;
+vector<int> adj[N];
+vector<int> euler, new_old;
+
 void log_table()
 {
     for (int i = 2; i < N; i++)
         tlog[i] = tlog[i / 2] + 1;
 }
 
-vector<vector<int>> sparse_table(vector<int> &a)
+void sparse_table(vector<int> &a)
 {
     int n = int(a.si);
     int k = tlog[n] + 1;
@@ -22,20 +27,30 @@ vector<vector<int>> sparse_table(vector<int> &a)
         }
     }
 
-    return sparse;
+    v = sparse;
+    return;
 }
-int query(vector<vector<int>> &v, int l, int r)
+
+int lca(int x, int y)
 {
     //minimum of a range [L,R] can be computed with:
     //zero based array
+    int l = early[x];
+    int r = early[y];
+    if (l > r)
+        swap(l, r);
+
     int row = tlog[r - l + 1];
-    return min(v[row][l], v[row][r - (1 << row) + 1]);
+    return new_old[min(v[row][l], v[row][r - (1 << row) + 1])];
 }
-int n, q;
-int dis[N];
+
+int distance(int x, int y)
+{
+    int temp = lca(x, y);
+    return (dis[x] + dis[y] - 2 * dis[temp]);
+}
 //EULER TOUR OF A TREE TAKES 2*N-1 space;
-vector<int> adj[N];
-vector<int> euler, early(N), new_old;
+
 void dfs(int s = 1, int e = 0, int h = 0)
 {
     int new_index = int(new_old.si);
@@ -52,6 +67,14 @@ void dfs(int s = 1, int e = 0, int h = 0)
         euler.pb(new_index);
     }
 }
+
+void precompute()
+{
+    dfs();
+    log_table();
+    sparse_table(euler);
+}
+
 int main()
 {
     kira;
@@ -65,20 +88,11 @@ int main()
         adj[y].pb(x);
     }
 
-    dfs();
-    log_table();
-
-    vector<vector<int>> v = sparse_table(euler);
+    precompute();
     while (q--)
     {
         cin >> x >> y;
-        int l = early[x];
-        int r = early[y];
-        if (l > r)
-            swap(l, r);
-
-        int new_index = query(v, l, r);
-        cout << dis[x] + dis[y] - 2 * dis[new_old[new_index]] << endl;
+        cout << distance(x, y) << endl;
     }
     return 0;
 }
