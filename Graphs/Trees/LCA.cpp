@@ -44,7 +44,7 @@ int lca(int x, int y)
     return new_old[min(v[row][l], v[row][r - (1 << row) + 1])];
 }
 
-int distance(int x, int y)
+int dist(int x, int y)
 {
     int temp = lca(x, y);
     return (dis[x] + dis[y] - 2 * dis[temp]);
@@ -92,7 +92,7 @@ int main()
     while (q--)
     {
         cin >> x >> y;
-        cout << distance(x, y) << endl;
+        cout << dist(x, y) << endl;
     }
     return 0;
 }
