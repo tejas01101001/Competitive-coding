@@ -75,7 +75,7 @@ while (l <= r)
 13)Range updates and point queries
 
 >>update adds x at position k
->>to set position k as x use update(k,x-fentree[k])
+>>to set position k as x use update(k,x-a[k])
 
 void update(lli k,lli x)
 {
@@ -131,7 +131,7 @@ lli qry(lli l,lli r)
 lli upd(lli k,lli x)
 {
     fentree[0].update(k,x);
-    fentree[1].update(k,k*(x-fentree[k]));
+    fentree[1].update(k,k*(x-a[k]));
 }
 
 14)Range updates and Range Queries:
