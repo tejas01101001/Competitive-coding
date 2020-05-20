@@ -132,6 +132,7 @@ lli upd(lli k,lli x)
 {
     fentree[0].update(k,x);
     fentree[1].update(k,k*(x-a[k]));
+    a[k]=x;
 }
 
 14)Range updates and Range Queries:
