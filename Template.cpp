@@ -1,4 +1,4 @@
-//https://codeforces.com/contest/1342/problem/A
+//https://codeforces.com/contest/1359/problem/A
 //Author: BrownieTK
 
 //#pragma GCC optimize("O3")
@@ -116,6 +116,9 @@ typedef pair<int, lli> pil;
 
 #define mod 1000000007
 #define mod2 998244353
+#define PI 3.1415926535897932384
+#define INF LLONG_MAX
+
 #define gcd __gcd
 #define kira ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
 
@@ -182,7 +185,7 @@ inline lli modi(lli a, lli m = mod) { return power(a, m - 2, m); }
 int main()
 {
     kira;
-    
+
     run_time();
     return 0;
 }
