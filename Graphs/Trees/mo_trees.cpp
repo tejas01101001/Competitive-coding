@@ -8,14 +8,13 @@ struct query
 const int N = 2e5 + 5;
 const int l = ceil(log2(N));
 int up[N][l], tin[N], tout[N];
-int res[N];
-int cnt[N], a[N];
+int cnt[N], a[N], ans[N];
 bool chk[N];
 vector<int> adj[N];
 vector<int> euler;
 vector<query> mo;
 int n, q, eu, ev, timer = 0;
-int len;
+int len, k;
 
 void dfs(int s, int e)
 {
@@ -50,7 +49,7 @@ int LCA(int u, int v)
     if (isancestor(v, u))
         return v;
 
-    for (int i = l; i >= 0; i--)
+    for (int i = l-1; i >= 0; i--)
     {
         if (!isancestor(up[u][i], v))
             u = up[u][i];
@@ -78,22 +77,28 @@ query make_query(int a, int b, int idx)
     return {tout[a], tin[b], lca, idx, 1};
 }
 
+int res;
 void check(int node)
 {
     //DONT COUNT NODE IF IT APPEARS TWICE
     if (!chk[node])
     {
-
+        cnt[a[node]]++;
+        if (cnt[a[node]] == 1)
+            res++;
     }
     else
     {
-
+        cnt[a[node]]--;
+        if (cnt[a[node]] == 0)
+            res--;
     }
     chk[node] ^= 1;
 }
 void compute()
 {
     //algo for zero based queries
+    res=0;
     int l = 0, r = -1;
     for (query u : mo)
     {
@@ -109,12 +114,12 @@ void compute()
         if (u.flag)
         {
             check(u.lca);
-            //
+            ans[u.idx] = res;
             check(u.lca);
         }
-        else 
+        else
         {
-
+            ans[u.idx] = res;
         }
     }
 }
@@ -122,25 +127,41 @@ int main()
 {
     kira;
     cin >> n >> q;
+    map<lli,lli>m;
+    lli y;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> y;
+        if(m.count(y))a[i]=m[y];
+        else 
+        {
+            a[i]=m.size();
+            m[y]=a[i];
+        }
+    }
     forz(i, n - 1)
     {
         cin >> eu >> ev;
+        eu--;
+        ev--;
         adj[eu].pb(ev);
         adj[ev].pb(eu);
     }
-    dfs(1, 1);
-
-    int ql, qr;
+    dfs(0,0);
+    
+    int ql, qr, qk;
     forz(i, q)
     {
-        cin >> ql >> qr;
+        cin >> ql >> qr ;
+        ql--;
+        qr--;
         mo.pb(make_query(ql, qr, i));
     }
     len = int(sqrt(n + 0.5)) + 1;
     sort(all(mo), compare);
 
     compute();
-    for (int i = 1; i <= n; i++)
-        p0(cnt[i]);
+    for (int i = 0; i < q; i++)
+        p1(ans[i]);
     return 0;
 }
