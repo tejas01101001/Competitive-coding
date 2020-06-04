@@ -34,14 +34,14 @@ struct query
 
 const int N = 2e5 + 5;
 const int l = ceil(log2(N));
-int up[N][l], tin[N], tout[N];
+int up[N][l+1], tin[N], tout[N];
 int cnt[N], a[N], ans[N];
 bool chk[N];
 vector<int> adj[N];
 vector<int> euler;
 vector<query> mo;
 int n, q, eu, ev, timer = 0;
-int len, k;
+int k;
 
 void dfs(int s, int e)
 {
@@ -49,7 +49,7 @@ void dfs(int s, int e)
     tin[s] = timer++;
 
     up[s][0] = e;
-    for (int i = 1; i < l; i++)
+    for (int i = 1; i <= l; i++)
     {
         up[s][i] = up[up[s][i - 1]][i - 1];
     }
@@ -76,7 +76,7 @@ int LCA(int u, int v)
     if (isancestor(v, u))
         return v;
 
-    for (int i = l - 1; i >= 0; i--)
+    for (int i = l; i >= 0; i--)
     {
         if (!isancestor(up[u][i], v))
             u = up[u][i];
@@ -158,7 +158,7 @@ int main()
     cin >> n >> q;
     map<lli, lli> m;
     lli y;
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         cin >> y;
         if (m.count(y))
@@ -172,22 +172,17 @@ int main()
     forz(i, n - 1)
     {
         cin >> eu >> ev;
-        eu--;
-        ev--;
         adj[eu].pb(ev);
         adj[ev].pb(eu);
     }
-    dfs(0, 0);
+    dfs(1, 1);
 
     int ql, qr, qk;
     forz(i, q)
     {
         cin >> ql >> qr;
-        ql--;
-        qr--;
         mo.pb(make_query(ql, qr, i));
     }
-    len = int(sqrt(n + 0.5)) + 1;
     sort(all(mo), compare);
 
     compute();

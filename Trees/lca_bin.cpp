@@ -1,13 +1,13 @@
 const int N = 2e5 + 5;
+const int l = ceil(log2(N));
 vector<int> adj[N];
-int tin[N], tout[N];
-int n, l;
-int up[N][21];
+int tin[N], tout[N], n;
+int up[N][l + 1];
 int timer;
 
 void dfs(int s, int e)
 {
-    tin[s] = ++timer;
+    tin[s] = timer++;
     up[s][0] = e;
     for (int i = 1; i <= l; i++)
     {
@@ -21,7 +21,7 @@ void dfs(int s, int e)
         dfs(u, s);
     }
 
-    tout[s] = ++timer;
+    tout[s] = timer++;
 }
 
 bool isancestor(int u, int v)
@@ -67,10 +67,7 @@ int main()
         adj[i + 2].pb(x);
         adj[x].pb(i + 2);
     }
-    l = ceil(log2(n));
 
-    memset(up, 0, sizeof(up));
-    timer = 0;
     dfs(1, 1);
 
     int u, v;
