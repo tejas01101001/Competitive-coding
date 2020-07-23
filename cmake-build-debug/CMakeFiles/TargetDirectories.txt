@@ -1,0 +1,3 @@
+/home/tejas/Competitive-coding/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/tejas/Competitive-coding/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/tejas/Competitive-coding/cmake-build-debug/CMakeFiles/Competitive_coding.dir
