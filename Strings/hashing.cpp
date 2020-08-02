@@ -40,7 +40,7 @@ in short :
 for h[a]-h[b];
 multiply it by pro[n-1-b];
 
-8)There is a really easy trick to get better probabilities. We can just compute two different hashes for each string (by using two different p, and/or different m, and compare these pairs instead. If m is about 10e9 for each of the two hash functions, than this is more or less equivalent as having one hash function with m≈10e18. When comparing 10e6 strings with each other, the probability that at least one collision happens is now reduced to ≈10e(-6).
+8)There is a really easy trick to get better probabilities. We can just compute two different hashes for each string (by using two different p, and/or different m, and compare these pairs instead. If m is about 1e9 for each of the two hash functions, than this is more or less equivalent as having one hash function with m≈10e18. When comparing 1e6 strings with each other, the probability that at least one collision happens is now reduced to ≈1e(-6).
 
 9)sometimes take p as 13331 and remove the mod p should be lli
 a)Strings x and y are compared with each other. The probability of
