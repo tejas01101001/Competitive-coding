@@ -37,16 +37,29 @@ lli query(lli l, lli r)
     return res;
 }
 
->Before doing any queries we need to bulid the tree bulid(); in 
+>Before doing any queries we need to bulid the tree bulid();in 
 O(n)
 
 http://i.imgur.com/GGBmcEP.png
 
 >Refer the above image for query [3,11)
-General idea is the following. If l, the left interval border, is odd (which is equivalent to l&1) then l is the right child of its parent. Then our interval includes node l but doesnt include its parent. So we add t[l] and move to the right of l parent by setting l = (l + 1) / 2. If l is even, it is the left child, and the interval includes its parent as well (unless the right border interferes), so we just move to it by setting l = l / 2. Similar argumentation is applied to the right border. We stop once borders meet.
 
->If n is not a power of 2 consider a set of balanced binary trees which can be shown to above tree .Hence the above code 
-works
+General idea is the following. If l, the left interval border, 
+is odd (which is equivalent to l&1) then l is the right child of 
+its parent. Then our interval includes node l but doesnt include 
+its parent. 
+
+So we add t[l] and move to the right of l parent by 
+setting l = (l + 1) / 2. If l is even, it is the left child,
+and the interval includes its parent as well 
+(unless the right border interferes),
+
+so we just move to it by setting l = l / 2. 
+Similar argumentation is applied to the right border. 
+We stop once borders meet.
+
+>If n is not a power of 2 consider a set of balanced binary trees 
+which can be shown to above tree .Hence the above code works
 
 2)Modification on a interval,single element access
 
@@ -73,7 +86,9 @@ lli query(lli p)
     return res;
 }
 
->But at some point we need to inspect all the elements in the array,we can push all the modications to the leaves.
+>But at some point we need to inspect all the elements in the array,
+we can push all the modications to the leaves.
+
 After that we can just traverse elements starting with index n 
 This way we can reduce the TC from O(nlogn) to O(n)
 
@@ -90,12 +105,21 @@ void push()
 
 3)NON-commutative combiner functions:
 
-We have considered commutative combiner functions like +,max,min,&,|,^ 
+We have considered commutative combiner functions like 
++,max,min,&,|,^ 
+
 Initial query res to apt infinity while using mix,max
 
 >>If combiner function is not commutative
 
-We define structure S and combine function for it. In method build we just change + to this function. In modify we need to ensure the correct ordering of children, knowing that left child has even index. When answering the query, we note that nodes corresponding to the left border are processed from left to right, while the right border moves from right to left.
+We define structure S and combine function for it. 
+In method build we just change + to this function. 
+In modify we need to ensure the correct ordering of children, 
+knowing that left child has even index. 
+
+When answering the query, we note that nodes corresponding 
+to the left border are processed from left to right, 
+while the right border moves from right to left.
 
 void modify(int p, const S& value) 
 {
