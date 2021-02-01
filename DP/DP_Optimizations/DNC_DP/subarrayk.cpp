@@ -1,3 +1,6 @@
+
+//https://cses.fi/problemset/task/2086
+
 const int N = 3e3 + 5;
 lli dp_prev[N], dp_curr[N];
 lli a[N], pre[N];
