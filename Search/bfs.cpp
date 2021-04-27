@@ -2,6 +2,9 @@ const int N =
 vector<int> adj[N];
 bool vis[N];
 int dis[N];
+
+
+
 void bfs(int x)
 {
 	queue<int> q;
