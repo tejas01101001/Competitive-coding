@@ -19,9 +19,9 @@ are stored in the tree.
 
 8)The following function calculates the sum in (1,k)
 
-lli query(lli k)
+ll query(ll k)
 {
-    lli s=0;
+    ll s=0;
     while(k>=1)
     {
         s+=fentree[k];
@@ -33,7 +33,7 @@ lli query(lli k)
 9)The following function increases the array value at pos k by x.
 (x can be any integer)
 
-void update(lli k,lli x)
+void update(ll k,ll x)
 {
     while(k<=n)
     {
@@ -77,7 +77,7 @@ while (l <= r)
 >>update adds x at position k
 >>to set position k as x use update(k,x-a[k])
 
-void update(lli k,lli x)
+void update(ll k,ll x)
 {
     while(k<=n)
     {
@@ -86,15 +86,15 @@ void update(lli k,lli x)
     }
 }
 
-void range_upd(lli l,lli r,lli x)
+void range_upd(ll l,ll r,ll x)
 {
     update(l,x);
     update(r+1,-x);
 }
 
-lli point_query(lli k)
+ll point_query(ll k)
 {
-    lli s=0;
+    ll s=0;
     while(k>=1)
     {
         s+=fentree[k];
@@ -109,7 +109,7 @@ Typically two fenwick trees are maintained
 1)Query of type given [l,r]
 find a[l]+a[l+1]*2+a[l+2]*3+....+a[r]*(r-l+1)
 
-lli query(lli l,lli r)
+ll query(ll l,ll r)
 {
     return query(r)-query(l-1);
 }
@@ -121,14 +121,14 @@ a[0]*0,a[1]*1,a[2]*2,a[3]*3,a[4]*4,.........   fentree[1]
 Suppose we want to query [3,5]:
 fentree[1].query(3,5)-(2)*fentree[0].query(3,5)
 
-lli qry(lli l,lli r)
+ll qry(ll l,ll r)
 {
     return fentree[1].query(l,r)-(l-1)*fentree[0].query(l,r);
 }
 
 2)Update i.e set the value at pos k as x
 
-lli upd(lli k,lli x)
+ll upd(ll k,ll x)
 {
     fentree[0].update(k,x);
     fentree[1].update(k,k*(x-a[k]));

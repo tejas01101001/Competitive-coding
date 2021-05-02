@@ -1,9 +1,10 @@
 Binary search:
+
 1)Basic structure
-lli l=0,r=n-1;
+ll l=0,r=n-1;
 while (l <= r)
 {
-  lli mid = l + (r - l) / 2;
+  ll mid = l + (r - l) / 2;
   if (a[mid] == x)
     return mid;
   if (a[mid] < x)
@@ -31,8 +32,8 @@ Think of binary search as as series of true and false.
 need to find boundary between the partially false and partially true.
 prefix of true and suffix of false or the other way.
 
-lli l=0,r=n-1;
-lli ans = -1;
+ll l=0,r=n-1;
+ll ans = -1;
 while (l <= r)
 {
   mid = l + (r - l) / 2;

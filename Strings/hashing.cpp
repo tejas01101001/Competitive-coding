@@ -7,7 +7,7 @@ Hashing
 5)m=1e9+9;
 6)Converting a→0 is not a good idea, because then the hashes of the strings a, aa, aaa, … all evaluate to 0.Hence convert a to 1.
 
-vector<lli>pro(n),h(n+1,0);
+vector<ll>pro(n),h(n+1,0);
 pro[0]=1;
 for(int i=1;i<n;i++)
   pro[i]=(pro[i-1]*p)%m;
@@ -22,7 +22,7 @@ i.e h[i,j]*p^i=h[j]-h[i-1];
 
 for(int l=n-1;l>=1;l--)
 {
-lli pre,cur,suf;
+ll pre,cur,suf;
 pre=(h[l]*pro[n-1])%m;
 suf=(h[n]+m-h[n-l])%m;
 suf=(suf*pro[l-1])%m;
@@ -42,7 +42,7 @@ multiply it by pro[n-1-b];
 
 8)There is a really easy trick to get better probabilities. We can just compute two different hashes for each string (by using two different p, and/or different m, and compare these pairs instead. If m is about 1e9 for each of the two hash functions, than this is more or less equivalent as having one hash function with m≈10e18. When comparing 1e6 strings with each other, the probability that at least one collision happens is now reduced to ≈1e(-6).
 
-9)sometimes take p as 13331 and remove the mod p should be lli
+9)sometimes take p as 13331 and remove the mod p should be ll
 a)Strings x and y are compared with each other. The probability of
 a collision is 1/m assuming that all hash values are equally probable
 m ideal:1e9

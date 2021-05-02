@@ -2,8 +2,8 @@
 //BROWNIE TK
  
 #include <bits/stdc++.h>
-typedef long long int lli;
-typedef unsigned long long int ulli;
+typedef long long int ll;
+typedef unsigned long long int ull;
 typedef long double ldb;
  
 #include <ext/pb_ds/assoc_container.hpp>
@@ -27,9 +27,9 @@ using namespace __gnu_pbds;
 #define F first
 #define S second
  
-#define pll pair<lli, lli>
+#define pll pair<ll, ll>
 #define pii pair<int, int>
-#define pil pair<int, lli>
+#define pil pair<int, ll>
  
 #define forz(i, n) for (int i = 0; i < n; i++)
 #define fore(i, m, n) for (int i = m; i <= n; i++)
@@ -74,7 +74,7 @@ power of two exactly when x & (x â�� 1) = 0.
 #define p4(a, b, c, d) cout << a << " " << b << " " << c << " " << d << endl
  
 #define oset tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
-#define osetlli tree<lli, null_type, less<lli>, rb_tree_tag, tree_order_statistics_node_update>
+#define osetlli tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update>
 //member functions :
 //1. order_of_key(k) : number of elements sbtriectly lesser than k
 //2. find_by_order(k) : k-th element in the set
@@ -83,9 +83,9 @@ power of two exactly when x & (x â�� 1) = 0.
 using namespace std;
  
 /*STD funcions*/
-lli power(lli x, lli y, lli p)
+ll power(ll x, ll y, ll p)
 {
-    lli res = 1;
+    ll res = 1;
     x = x % p;
     while (y > 0)
     {
@@ -96,10 +96,10 @@ lli power(lli x, lli y, lli p)
     }
     return res;
 }
-lli modi(lli a, lli m) { return power(a, m - 2, m); }
+ll modi(ll a, ll m) { return power(a, m - 2, m); }
 /*CODE BEGINS*/
 string s;
-lli dp[10][90][2];
+ll dp[10][90][2];
 bool prime[100];
 void sieve(int n)
 {
@@ -114,7 +114,7 @@ void sieve(int n)
     }
     return;
 }
-lli solve(int pos, int sum, int t)
+ll solve(int pos, int sum, int t)
 {
     if (pos == s.si)
     {
@@ -125,7 +125,7 @@ lli solve(int pos, int sum, int t)
     if (dp[pos][sum][t] != -1)
         return dp[pos][sum][t];
     int lim = t ? s[pos] - '0' : 9;
-    lli ans = 0, nt = t, nsum = sum;
+    ll ans = 0, nt = t, nsum = sum;
     for (int i = 0; i <= lim; i++)
     {
         if (i != lim)
@@ -146,16 +146,16 @@ int main()
     while (n--)
     {
         cin >> a >> b;
-        lli n=stoll(a);
+        ll n=stoll(a);
         n--;
         a=to_string(n);
         sieve(100);
         memset(dp, -1, sizeof(dp));
         s = b;
-        lli y = solve(0, 0, 1);
+        ll y = solve(0, 0, 1);
         memset(dp, -1, sizeof(dp));
         s = a;
-        lli x = solve(0, 0, 1);
+        ll x = solve(0, 0, 1);
         cout<<y-x<<endl;
     }
     return 0;

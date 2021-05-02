@@ -6,9 +6,9 @@ we know that z[k] = z[k−x]. However, if k+z[k−x] ≥ y, s[0. . . y−k] equa
 s[k. . . y], and to determine the value of z[k] we need to compare the 
 substrings character by character.
 
-lli n=s.si;
-vector<lli>z(n);
-lli x=0,y=0;
+ll n=s.si;
+vector<ll>z(n);
+ll x=0,y=0;
 for(int i=1;i<n;i++)
 {
   z[i]=max(0LL,min(z[i-x],y-i+1));

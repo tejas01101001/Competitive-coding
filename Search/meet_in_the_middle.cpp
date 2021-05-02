@@ -3,15 +3,15 @@ The technique can be used if there is an efficient way to combine the results of
 one large search. Typically, we can turn a factor of 2^n into a factor of 2^n/2 using the meet in the middle technique.
 
 //NO OF SUBSETS WITH SUM >=K
-const lli INF = 1e12;
-lli k;
-vector<lli> subset(vector<lli> &v)
+const ll INF = 1e12;
+ll k;
+vector<ll> subset(vector<ll> &v)
 {
-    lli n = v.si;
-    vector<lli> sum;
+    ll n = v.si;
+    vector<ll> sum;
     for (int i = 0; i < (1 << n); i++)
     {
-        lli s = 0;
+        ll s = 0;
         for (int j = 0; j < n; j++)
         {
             if (i & (1 << j))
@@ -27,9 +27,9 @@ vector<lli> subset(vector<lli> &v)
 int main()
 {
     kira;
-    lli n, x;
+    ll n, x;
     cin >> n >> k;
-    vector<lli> a, b;
+    vector<ll> a, b;
     forz(i, n)
     {
         cin >> x;
@@ -38,9 +38,9 @@ int main()
         else
             a.pb(x);
     }
-    vector<lli> sa = subset(a);
-    vector<lli> sb = subset(b);
-    lli c = 0;
+    vector<ll> sa = subset(a);
+    vector<ll> sb = subset(b);
+    ll c = 0;
     sort(all(sb));
     for (auto x : sa)
     {

@@ -4,8 +4,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long int lli;
-typedef unsigned long long int ulli;
+typedef long long int ll;
+typedef unsigned long long int ull;
 typedef long double ldb;
 
 #include <ext/pb_ds/assoc_container.hpp>
@@ -29,9 +29,9 @@ using namespace __gnu_pbds;
 #define F first
 #define S second
 
-#define pll pair<lli, lli>
+#define pll pair<ll, ll>
 #define pii pair<int, int>
-#define pil pair<int, lli>
+#define pil pair<int, ll>
 
 #define forz(i, n) for (int i = 0; i < n; i++)
 #define fore(i, m, n) for (int i = m; i <= n; i++)
@@ -76,7 +76,7 @@ power of two exactly when x & (x − 1) = 0.
 #define p4(a, b, c, d) cout << a << " " << b << " " << c << " " << d << endl
 
 #define oset tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
-#define osetlli tree<lli, null_type, less<lli>, rb_tree_tag, tree_order_statistics_node_update>
+#define osetlli tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update>
 //member functions :
 //1. order_of_key(k) : number of elements sbtriectly lesser than k
 //2. find_by_order(k) : k-th element in the set
@@ -84,9 +84,9 @@ power of two exactly when x & (x − 1) = 0.
 #define fbo find_by_order
 
 /*STD funcions*/
-lli power(lli x, lli y, lli p)
+ll power(ll x, ll y, ll p)
 {
-    lli res = 1;
+    ll res = 1;
     x = x % p;
     while (y > 0)
     {
@@ -97,11 +97,11 @@ lli power(lli x, lli y, lli p)
     }
     return res;
 }
-lli modi(lli a, lli m) { return power(a, m - 2, m); }
+ll modi(ll a, ll m) { return power(a, m - 2, m); }
 /*CODE BEGINS*/
 string s;
 const int N = 1e5 + 5;
-lli ten[N];
+ll ten[N];
 pll dp[N][10][2];
 void pre()
 {
@@ -112,18 +112,18 @@ void pre()
     }
     return;
 }
-pll solve(lli pos, lli dig, lli t)
+pll solve(ll pos, ll dig, ll t)
 {
-    lli k = lli(s.si);
+    ll k = ll(s.si);
     if (pos == k)
         return {0, 1};
 
     if (dp[pos][dig][t].F != -1)
         return dp[pos][dig][t];
 
-    lli lim = t ? s[pos] - '0' : 9;
+    ll lim = t ? s[pos] - '0' : 9;
     pll ans = {0, 0};
-    for (lli i = 0; i <= lim; i++)
+    for (ll i = 0; i <= lim; i++)
     {
 
         pll temp = solve(pos + 1, i, t & (i == lim));
@@ -141,7 +141,7 @@ pll solve(lli pos, lli dig, lli t)
 int main()
 {
     kira;
-    lli nc, nl, nr;
+    ll nc, nl, nr;
     string l, r;
     cin >> nc;
     pre();
@@ -167,7 +167,7 @@ int main()
             }
         }
         s = l;
-        lli y = solve(0, 0, 1).F;
+        ll y = solve(0, 0, 1).F;
         forz(i, nr)
         {
             forz(j, 10)
@@ -179,7 +179,7 @@ int main()
             }
         }
         s = r;
-        lli x = solve(0, 0, 1).F;
+        ll x = solve(0, 0, 1).F;
         cout << (x - y + mod) % mod << endl;
     }
     return 0;

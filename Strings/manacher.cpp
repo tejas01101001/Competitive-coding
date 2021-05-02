@@ -15,19 +15,19 @@ $ # a # b # a # b # a # b # a # @  string t
 string manacher(string s)
 {
     string t = "$";
-    lli n = s.si;
+    ll n = s.si;
     forz(i, n)
     {
         t += "#";
         t += s[i];
     }
     t+="#@";
-    lli len = t.si;
-    lli p[len] = {0};
-    lli center = 0, right = 0;
+    ll len = t.si;
+    ll p[len] = {0};
+    ll center = 0, right = 0;
     for (int i = 1; i < len-1; i++)
     {
-        lli mirror = 2 * center - i;
+        ll mirror = 2 * center - i;
         if (i < right)
             p[i] = min(p[mirror], right - i);
         while (t[i + (1 + p[i])] == t[i - (1 + p[i])])
@@ -38,7 +38,7 @@ string manacher(string s)
             right = i + p[i];
         }
     }
-    lli length=-1,in=-1;
+    ll length=-1,in=-1;
     for(int i=1;i<len;i++)
     {
         if(p[i]>length)

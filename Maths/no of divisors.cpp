@@ -1,14 +1,14 @@
-lli tau(lli num)
+ll tau(ll num)
 {
-    lli count = 0;
-    lli pp = 1;
+    ll count = 0;
+    ll pp = 1;
     while (num % 2 == 0)
     {
         count++;
         num /= 2;
     }
     pp *= (count + 1);
-    for (lli i = 3; i <= sqrt(num); i += 2)
+    for (ll i = 3; i <= sqrt(num); i += 2)
     {
         count = 0;
         while (num % i == 0)

@@ -63,13 +63,13 @@ void _print(T t, V... v)
 
 //========================TypeDefs===================================
 
-typedef long long int lli;
-typedef unsigned long long int ulli;
+typedef long long int ll;
+typedef unsigned long long int ull;
 typedef long double ldb;
 
-typedef pair<lli, lli> pll;
+typedef pair<ll, ll> pll;
 typedef pair<int, int> pii;
-typedef pair<int, lli> pil;
+typedef pair<int, ll> pil;
 
 //=========================MACROS====================================
 
@@ -130,7 +130,7 @@ typedef pair<int, lli> pil;
 #define p4(a, b, c, d) cout << a << " " << b << " " << c << " " << d << endl
 
 #define oset tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
-#define osetlli tree<lli, null_type, less<lli>, rb_tree_tag, tree_order_statistics_node_update>
+#define osetlli tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update>
 
 #define ofk order_of_key
 #define fbo find_by_order
@@ -151,9 +151,9 @@ void run_time()
     return;
 }
 
-inline lli power(lli x, lli y, lli p = mod)
+inline ll power(ll x, ll y, ll p = mod)
 {
-    lli res = 1;
+    ll res = 1;
     x = x % p;
     while (y > 0)
     {
@@ -165,7 +165,7 @@ inline lli power(lli x, lli y, lli p = mod)
     return res;
 }
 
-inline lli modadd(lli a, lli b, lli m = mod)
+inline ll modadd(ll a, ll b, ll m = mod)
 {
     a += b;
     if (a >= m)
@@ -173,12 +173,12 @@ inline lli modadd(lli a, lli b, lli m = mod)
     return a;
 }
 
-inline lli modmul(lli a, lli b, lli m = mod)
+inline ll modmul(ll a, ll b, ll m = mod)
 {
     return ((a % m) * (b % m)) % m;
 }
 
-inline lli modi(lli a, lli m = mod) { return power(a, m - 2, m); }
+inline ll modi(ll a, ll m = mod) { return power(a, m - 2, m); }
 
 //================================CODE=============================================
 

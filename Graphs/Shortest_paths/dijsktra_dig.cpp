@@ -4,11 +4,11 @@
 4)what is the maximum number of flights in a minimum-price route?
 
 const int N = 1e5 + 5;
-const lli INF = LLONG_MAX;
+const ll INF = LLONG_MAX;
 bool vis[N];
 vector<pll> dis(N, {INF, 0});
-vector<lli> mini(N, INF);
-vector<lli> maxi(N, -INF);
+vector<ll> mini(N, INF);
+vector<ll> maxi(N, -INF);
 vector<pll> adj[N];
 int n, m;
  
@@ -16,7 +16,7 @@ int main()
 {
     kira;
     cin >> n >> m;
-    lli eu, ev, ew;
+    ll eu, ev, ew;
  
     forz(i, m)
     {
@@ -24,14 +24,14 @@ int main()
         adj[eu].pb({ev, ew});
     }
  
-    priority_queue<pair<lli, lli>> pq;
+    priority_queue<pair<ll, ll>> pq;
     dis[1] = {0, 1};
     pq.push({0, 1});
     mini[1]=0;
     maxi[1]=0;
     while (!pq.empty())
     {
-        lli s = pq.top().S;
+        ll s = pq.top().S;
         pq.pop();
         if (vis[s])
             continue;
@@ -39,8 +39,8 @@ int main()
  
         for (auto u : adj[s])
         {
-            lli v = u.F;
-            lli w = u.S;
+            ll v = u.F;
+            ll w = u.S;
             if (dis[s].F + w == dis[v].F)
             {
                 dis[v].S = modadd(dis[s].S, dis[v].S);

@@ -16,26 +16,26 @@
 
 struct veniceset
 {
-    multiset<lli> s;
-    lli water_level = 0;
+    multiset<ll> s;
+    ll water_level = 0;
 
-    void add(lli v)
+    void add(ll v)
     {
         s.insert(v + water_level);
     }
-    void remove(lli v)
+    void remove(ll v)
     {
         s.erase(s.find(v + water_level));
     }
-    void updall(lli v)
+    void updall(ll v)
     {
         water_level += v;
     }
-    lli getmin()
+    ll getmin()
     {
         return *s.begin() - water_level;
     }
-    lli size()
+    ll size()
     {
         return s.size();
     }

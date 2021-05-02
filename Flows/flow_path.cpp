@@ -1,13 +1,13 @@
 struct FlowEdge
 {
     int v, u;
-    lli cap, flow = 0;
-    FlowEdge(int v, int u, lli cap) : v(v), u(u), cap(cap) {}
+    ll cap, flow = 0;
+    FlowEdge(int v, int u, ll cap) : v(v), u(u), cap(cap) {}
 };
  
 struct Dinic
 {
-    const lli flow_inf = 1e18;
+    const ll flow_inf = 1e18;
     vector<FlowEdge> edges;
     vector<vector<int>> adj;
     int n, m = 0;
@@ -22,7 +22,7 @@ struct Dinic
         ptr.resize(n);
     }
  
-    void add_edge(int v, int u, lli cap)
+    void add_edge(int v, int u, ll cap)
     {
         edges.emplace_back(v, u, cap);
         edges.emplace_back(u, v, 0);
@@ -50,7 +50,7 @@ struct Dinic
         return level[t] != -1;
     }
  
-    lli dfs(int v, lli pushed)
+    ll dfs(int v, ll pushed)
     {
         if (pushed == 0)
             return 0;
@@ -62,7 +62,7 @@ struct Dinic
             int u = edges[id].u;
             if (level[v] + 1 != level[u] || edges[id].cap - edges[id].flow < 1)
                 continue;
-            lli tr = dfs(u, min(pushed, edges[id].cap - edges[id].flow));
+            ll tr = dfs(u, min(pushed, edges[id].cap - edges[id].flow));
             if (tr == 0)
                 continue;
             edges[id].flow += tr;
@@ -72,9 +72,9 @@ struct Dinic
         return 0;
     }
  
-    lli flow()
+    ll flow()
     {
-        lli f = 0;
+        ll f = 0;
         while (true)
         {
             fill(level.begin(), level.end(), -1);
@@ -83,7 +83,7 @@ struct Dinic
             if (!bfs())
                 break;
             fill(ptr.begin(), ptr.end(), 0);
-            while (lli pushed = dfs(s, flow_inf))
+            while (ll pushed = dfs(s, flow_inf))
             {
                 f += pushed;
             }

@@ -54,11 +54,11 @@ vector<pll> convex(vector<pll> a)
 int main()
 {
     kira;
-    lli n;
+    ll n;
     cin >> n;
 
     vector<pll> v;
-    lli x, y;
+    ll x, y;
     forz(i, n)
     {
         cin >> x >> y;

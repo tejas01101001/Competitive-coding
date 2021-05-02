@@ -1,13 +1,13 @@
-lli histogram(vector<lli> v)
+ll histogram(vector<ll> v)
 {
     int n = int(v.si);
-    vector<lli> a;
+    vector<ll> a;
     a.pb(-1);
     for (auto x : v)
         a.pb(x);
 
     stack<pll> s;
-    lli ans = 0;
+    ll ans = 0;
     s.push({-1, 0});
 
     for (int i = 1; i <= n; i++)

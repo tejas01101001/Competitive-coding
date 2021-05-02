@@ -4,7 +4,7 @@
 
 const int N = 2e5 + 5;
 vector<int> adj[N];
-lli dis[N];
+ll dis[N];
 void dfs(int s, int e)
 {
     for (auto u : adj[s])
@@ -15,9 +15,9 @@ void dfs(int s, int e)
         dfs(u, s);
     }
 }
-pair<lli, lli> far(lli n)
+pair<ll, ll> far(ll n)
 {
-    pair<lli, lli> p = {-1, -1};
+    pair<ll, ll> p = {-1, -1};
     for (int i = 1; i <= n; i++)
     {
         if (p.F < dis[i])
@@ -31,7 +31,7 @@ pair<lli, lli> far(lli n)
 int main()
 {
     kira;
-    lli n, u, v;
+    ll n, u, v;
     cin >> n;
     forz(i, n - 1)
     {
@@ -40,7 +40,7 @@ int main()
         adj[v].pb(u);
     }
     dfs(1, -1);
-    pair<lli, lli> next = far(n);
+    pair<ll, ll> next = far(n);
     memset(dis, 0, sizeof(dis));
     dfs(next.S, -1);
     next = far(n);

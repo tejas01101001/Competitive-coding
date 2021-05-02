@@ -3,8 +3,6 @@ vector<int> adj[N];
 bool vis[N];
 int dis[N];
 
-
-
 void bfs(int x)
 {
 	queue<int> q;
@@ -15,7 +13,7 @@ void bfs(int x)
 	{
 		int s = q.front();
 		q.pop();
-		//tala
+		
 		for (auto u : adj[s])
 		{
 			if (vis[u])

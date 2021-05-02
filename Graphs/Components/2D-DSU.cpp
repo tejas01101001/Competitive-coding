@@ -1,21 +1,21 @@
 const int N = 1e6 + 2005;
-lli parent[N];
-lli siz[N];
+ll parent[N];
+ll siz[N];
 bool vis[N];
-void make(lli v)
+void make(ll v)
 {
     parent[v] = v;
     siz[v] = 1;
 }
  
-lli find(lli v)
+ll find(ll v)
 {
     if (v == parent[v])
         return v;
     return parent[v] = find(parent[v]);
 }
  
-void merge(lli a, lli b)
+void merge(ll a, ll b)
 {
     a = find(a);
     b = find(b);
@@ -27,8 +27,8 @@ void merge(lli a, lli b)
         siz[a] += siz[b];
     }
 }
-lli n, m;
-lli index(lli i, lli j)
+ll n, m;
+ll index(ll i, ll j)
 {
     return i * (m + 1) + j;
 }
@@ -49,7 +49,7 @@ int main()
                 merge(index(i, j), index(i, j - 1));
         }
     }
-    lli cnt=0;
+    ll cnt=0;
     forz(i,n+1)
     {
         forz(j,m+1)

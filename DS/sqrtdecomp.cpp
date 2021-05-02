@@ -7,11 +7,11 @@ int main()
 
     int n, q;
     cin >> n >> q;
-    vector<lli> a(n);
+    vector<ll> a(n);
     forz(i, n) cin >> a[i];
 
     int len = int(sqrt(n + .0)) + 1;
-    vector<lli> b(len);
+    vector<ll> b(len);
 
     for (int i = 0; i < n; i++)
     {
@@ -25,7 +25,7 @@ int main()
         cin >> l >> r;
         l--,r--;
 
-        lli sum = 0;
+        ll sum = 0;
         int low = l / len, high = r / len;
 
         if (low == high)

@@ -2,8 +2,8 @@
 //BROWNIE TK
 
 #include <bits/stdc++.h>
-typedef long long int lli;
-typedef unsigned long long int ulli;
+typedef long long int ll;
+typedef unsigned long long int ull;
 typedef long double ldb;
 
 #include <ext/pb_ds/assoc_container.hpp>
@@ -27,9 +27,9 @@ using namespace __gnu_pbds;
 #define F first
 #define S second
 
-#define pll pair<lli, lli>
+#define pll pair<ll, ll>
 #define pii pair<int, int>
-#define pil pair<int, lli>
+#define pil pair<int, ll>
 
 #define forz(i, n) for (int i = 0; i < n; i++)
 #define fore(i, m, n) for (int i = m; i <= n; i++)
@@ -74,7 +74,7 @@ power of two exactly when x & (x − 1) = 0.
 #define p4(a, b, c, d) cout << a << " " << b << " " << c << " " << d << endl
 
 #define oset tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
-#define osetlli tree<lli, null_type, less<lli>, rb_tree_tag, tree_order_statistics_node_update>
+#define osetlli tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update>
 //member functions :
 //1. order_of_key(k) : number of elements sbtriectly lesser than k
 //2. find_by_order(k) : k-th element in the set
@@ -83,9 +83,9 @@ power of two exactly when x & (x − 1) = 0.
 using namespace std;
 
 /*STD funcions*/
-lli power(lli x, lli y, lli p)
+ll power(ll x, ll y, ll p)
 {
-    lli res = 1;
+    ll res = 1;
     x = x % p;
     while (y > 0)
     {
@@ -96,13 +96,13 @@ lli power(lli x, lli y, lli p)
     }
     return res;
 }
-lli modi(lli a, lli m) { return power(a, m - 2, m); }
+ll modi(ll a, ll m) { return power(a, m - 2, m); }
 /*CODE BEGINS*/
 
 string s, t;
-pair<lli, string> dp[20][2][2][2];
+pair<ll, string> dp[20][2][2][2];
 
-pair<lli, string> solve(int pos, int t1, int t2, int srt)
+pair<ll, string> solve(int pos, int t1, int t2, int srt)
 {
     if (pos == int(s.si))
         return {1, ""};
@@ -110,20 +110,20 @@ pair<lli, string> solve(int pos, int t1, int t2, int srt)
     if (dp[pos][t1][t2][srt].F != -1)
         return dp[pos][t1][t2][srt];
 
-    lli st = t1 ? t[pos] - '0' : 0;
-    lli et = t2 ? s[pos] - '0' : 9;
+    ll st = t1 ? t[pos] - '0' : 0;
+    ll et = t2 ? s[pos] - '0' : 9;
 
-    lli res = -1;
+    ll res = -1;
     string ans = "";
-    for (lli i = st; i <= et; i++)
+    for (ll i = st; i <= et; i++)
     {
-        lli val;
+        ll val;
         if (srt == 0 && i == 0)
             val = 1;
         else
             val = i;
 
-        pair<lli, string> k = solve(pos + 1, t1 & (i == st), t2 & (i == et), srt | (i > 0));
+        pair<ll, string> k = solve(pos + 1, t1 & (i == st), t2 & (i == et), srt | (i > 0));
         if ((val * k.F) > res)
         {
             res = (k.F * val);

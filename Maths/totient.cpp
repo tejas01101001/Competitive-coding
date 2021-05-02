@@ -1,4 +1,4 @@
-lli phi(lli n)
+ll phi(ll n)
 {
 	int res = n;
 	for (int i = 2; i * i <= n; i++)

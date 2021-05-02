@@ -1,13 +1,13 @@
-lli histogram(vector<lli> v)
+ll histogram(vector<ll> v)
 {
     int n = int(v.si);
-    vector<lli> a;
+    vector<ll> a;
     a.pb(-1);
     for (auto x : v)
         a.pb(x);
 
     stack<pll> s;
-    lli ans = 0;
+    ll ans = 0;
     s.push({-1, 0});
 
     for (int i = 1; i <= n; i++)
@@ -31,12 +31,12 @@ lli histogram(vector<lli> v)
     return ans;
 }
 
-lli max_one_matrix(vector<vector<lli>> a)
+ll max_one_matrix(vector<vector<ll>> a)
 {
     int n = int(a.si);
     int m = int(a[0].si);
-    vector<lli> v = a[0];
-    lli ans = histogram(v);
+    vector<ll> v = a[0];
+    ll ans = histogram(v);
     for (int i = 1; i < n; i++)
     {
         for (int j = 0; j < m; j++)

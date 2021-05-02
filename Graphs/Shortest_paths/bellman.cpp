@@ -8,12 +8,12 @@
   a negative cycle.
 
 const int N = 2505;
-const lli INF = LLONG_MAX;
-lli dis[N];
+const ll INF = LLONG_MAX;
+ll dis[N];
 
 struct edge
 {
-    lli u, v, w;
+    ll u, v, w;
 };
 vector<edge> edges;
 
@@ -21,9 +21,9 @@ int main()
 {
 
     kira;
-    lli n, m;
+    ll n, m;
     cin >> n >> m;
-    lli eu, ev, ew;
+    ll eu, ev, ew;
 
     forz(i, m)
     {
@@ -41,9 +41,9 @@ int main()
     {
         for (auto x : edges)
         {
-            lli u = x.u;
-            lli v = x.v;
-            lli w = x.w;
+            ll u = x.u;
+            ll v = x.v;
+            ll w = x.w;
             if (dis[u] != INF && dis[u] + w < dis[v])
             {
                 dis[v] = dis[u] + w;
@@ -53,9 +53,9 @@ int main()
 
     for (auto x : edges)
     {
-        lli u = x.u;
-        lli v = x.v;
-        lli w = x.w;
+        ll u = x.u;
+        ll v = x.v;
+        ll w = x.w;
         if (dis[u] != INF && dis[u] + w < dis[v])
         {
             cout << -1;

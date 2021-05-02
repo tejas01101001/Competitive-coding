@@ -2,12 +2,12 @@
 //n Segments:
 //l,r;
 
-vector<pair<lli,lli>>v;
+vector<pair<ll,ll>>v;
 v.pb({l,+1});
 v.pb({r+1,-1});
 sort(all(v));
-lli k=2*n-1;
-lli c=0;
+ll k=2*n-1;
+ll c=0;
 forz(i,k)
 {
   c+=v[i].S;

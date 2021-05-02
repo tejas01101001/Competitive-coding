@@ -13,12 +13,12 @@ node a to node b with weight w.
 4)In the following code, the priority queue q contains pairs of 
 the form (−d, x), meaning that the current distance to node x is d.
 
-vector<lli> dijsktra(int x)
+vector<ll> dijsktra(int x)
 {
-	priority_queue<pair<lli, lli>> q;
+	priority_queue<pair<ll, ll>> q;
 	vector<bool> vis(n + 1, false);
-	vector<lli> p(n + 1, -1);
-	vector<lli> dis(n + 1, INF);
+	vector<ll> p(n + 1, -1);
+	vector<ll> dis(n + 1, INF);
 
 	dis[x] = 0;
 	q.push({0, x});

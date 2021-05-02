@@ -2,8 +2,8 @@
 //BROWNIE TK
 
 #include <bits/stdc++.h>
-typedef long long int lli;
-typedef unsigned long long int ulli;
+typedef long long int ll;
+typedef unsigned long long int ull;
 typedef long double ldb;
 
 #include <ext/pb_ds/assoc_container.hpp>
@@ -27,9 +27,9 @@ using namespace __gnu_pbds;
 #define F first
 #define S second
 
-#define pll pair<lli, lli>
+#define pll pair<ll, ll>
 #define pii pair<int, int>
-#define pil pair<int, lli>
+#define pil pair<int, ll>
 
 #define forz(i, n) for (int i = 0; i < n; i++)
 #define fore(i, m, n) for (int i = m; i <= n; i++)
@@ -74,7 +74,7 @@ power of two exactly when x & (x − 1) = 0.
 #define p4(a, b, c, d) cout << a << " " << b << " " << c << " " << d << endl
 
 #define oset tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
-#define osetlli tree<lli, null_type, less<lli>, rb_tree_tag, tree_order_statistics_node_update>
+#define osetlli tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update>
 //member functions :
 //1. order_of_key(k) : number of elements sbtriectly lesser than k
 //2. find_by_order(k) : k-th element in the set
@@ -83,9 +83,9 @@ power of two exactly when x & (x − 1) = 0.
 using namespace std;
 
 /*STD funcions*/
-lli power(lli x, lli y, lli p)
+ll power(ll x, ll y, ll p)
 {
-    lli res = 1;
+    ll res = 1;
     x = x % p;
     while (y > 0)
     {
@@ -96,11 +96,11 @@ lli power(lli x, lli y, lli p)
     }
     return res;
 }
-lli modi(lli a, lli m) { return power(a, m - 2, m); }
+ll modi(ll a, ll m) { return power(a, m - 2, m); }
 /*CODE BEGINS*/
 string s;
-lli dp[20][11][11][2][2][2][2];
-lli solve(lli pos, lli las, lli slas, lli even, lli odd, lli t, lli st)
+ll dp[20][11][11][2][2][2][2];
+ll solve(ll pos, ll las, ll slas, ll even, ll odd, ll t, ll st)
 {
     if (pos == int(s.si))
         return (even && odd);
@@ -108,19 +108,19 @@ lli solve(lli pos, lli las, lli slas, lli even, lli odd, lli t, lli st)
     if (dp[pos][las][slas][even][odd][t][st] != -1)
         return dp[pos][las][slas][even][odd][t][st];
 
-    lli ans = 0;
+    ll ans = 0;
     if (st == 0)
     {
         ans += solve(pos + 1, las, slas, even, odd, t & (s[pos] == '0'), st);
-        lli lim = t ? s[pos] - '0' : 9;
-        for (lli i = 1; i <= lim; i++)
+        ll lim = t ? s[pos] - '0' : 9;
+        for (ll i = 1; i <= lim; i++)
         {
             ans += solve(pos + 1, i, slas, even, odd , t & (lim== i), 1ll);
         }
     }
     else
     {
-        lli lim = t ? s[pos] - '0' : 9;
+        ll lim = t ? s[pos] - '0' : 9;
         for (int i = 0; i <= lim; i++)
         {
             ans += solve(pos + 1, i, las, even |(las == i), odd | (slas == i), t & (lim == i), 1ll);
@@ -139,10 +139,10 @@ int main()
         cin >> a >> b;
         memset(dp, -1, sizeof(dp));
         s = a;
-        lli y = solve(0,10,10,0,0,1,0);
+        ll y = solve(0,10,10,0,0,1,0);
         memset(dp, -1, sizeof(dp));
         s = b;
-        lli x = solve(0,10,10,0,0,1,0);
+        ll x = solve(0,10,10,0,0,1,0);
         cout << x - y << endl;
     }
     return 0;

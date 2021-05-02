@@ -1,4 +1,4 @@
-lli ternary(int lo, int hi)
+ll ternary(int lo, int hi)
 {
     //fucntion f should be unimodal
     //i.e convex or concave
@@ -11,7 +11,7 @@ lli ternary(int lo, int hi)
         else
             lo = m1;
     }
-    lli ans = func(lo);
+    ll ans = func(lo);
     for (int i = lo + 1; i <= hi; i++)
         ans = min(ans, func(i));
     return ans;

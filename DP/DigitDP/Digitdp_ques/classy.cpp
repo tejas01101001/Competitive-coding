@@ -3,8 +3,8 @@
 
 #include <bits/stdc++.h>
 
-typedef long long int lli;
-typedef unsigned long long int ulli;
+typedef long long int ll;
+typedef unsigned long long int ull;
 typedef long double ldb;
 
 #include <ext/pb_ds/assoc_container.hpp>
@@ -50,7 +50,7 @@ using namespace __gnu_pbds;
 #define p4(a, b, c, d) cout << a << " " << b << " " << c << " " << d << endl
 
 #define oset tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
-#define osetlli tree<lli, null_type, less<lli>, rb_tree_tag, tree_order_statistics_node_update>
+#define osetlli tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update>
 //member functions :
 //1. order_of_key(k) : number of elements strictly lesser than k
 //2. find_by_order(k) : k-th element in the set
@@ -60,9 +60,9 @@ using namespace __gnu_pbds;
 using namespace std;
 
 /*STD fucntions*/
-lli power(lli x, lli y, lli p)
+ll power(ll x, ll y, ll p)
 {
-    lli res = 1;
+    ll res = 1;
     x = x % p;
     while (y > 0)
     {
@@ -74,25 +74,25 @@ lli power(lli x, lli y, lli p)
     }
     return res;
 }
-lli gcd(lli a, lli b)
+ll gcd(ll a, ll b)
 {
     if (b == 0)
         return a;
     return gcd(b, a % b);
 }
-lli lcm(lli a, lli b)
+ll lcm(ll a, ll b)
 {
     return a * b / gcd(a, b);
 }
-lli modi(lli a, lli m)
+ll modi(ll a, ll m)
 {
     // fermat little thm where m is prime
     return power(a, m - 2, m);
 }
 /*CODE BEGINS*/
 string s;
-lli dp[20][5][2];
-lli solve(int pos, int cnt, int t)
+ll dp[20][5][2];
+ll solve(int pos, int cnt, int t)
 {
     if (cnt >= 4)
         return 0;
@@ -103,7 +103,7 @@ lli solve(int pos, int cnt, int t)
     if (dp[pos][cnt][t] != -1)
         return dp[pos][cnt][t];
     int lim = (t) ? 9 : s[pos] - '0';
-    lli ans = 0, nt = t;
+    ll ans = 0, nt = t;
     for (int i = 0; i <= lim; i++)
     {
         if (i != lim)
@@ -120,7 +120,7 @@ lli solve(int pos, int cnt, int t)
 int main()
 {
     kira;
-    lli t, l, r;
+    ll t, l, r;
     string a, b;
     cin >> t;
     while (t--)

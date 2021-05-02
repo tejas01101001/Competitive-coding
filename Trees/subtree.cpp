@@ -2,7 +2,7 @@
 
 const int N = 2e5 + 5;
 vector<int> adj[N];
-lli subtree[N];
+ll subtree[N];
 void dfs(int s,int e)
 {
     subtree[s]=1;

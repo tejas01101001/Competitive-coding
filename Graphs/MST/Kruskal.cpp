@@ -8,14 +8,14 @@ USE disjoint set union.
 
 struct edge
 {
-  lli u,v,weight;
+  ll u,v,weight;
   bool operator<(edge const& other)
   {
     return weight<other.weight;
   }
 };
 vector<edge>edges,result;
-lli cost=0;
+ll cost=0;
 sort(all(edges));
 for(edge e:edges)
 {

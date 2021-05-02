@@ -126,8 +126,8 @@ int main()
 {
     kira;
     cin >> n >> q;
-    map<lli,lli>m;
-    lli y;
+    map<ll,ll>m;
+    ll y;
     for (int i = 1; i <= n; i++)
     {
         cin >> y;

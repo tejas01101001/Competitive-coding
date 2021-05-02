@@ -3,12 +3,12 @@ int main()
 {
     kira;
  
-    lli n;
+    ll n;
     cin >> n;
  
-    lli dp[n + 1][n + 1];
-    lli h[n + 1][n + 1];
-    lli a[n + 1], pre[n + 1] = {0};
+    ll dp[n + 1][n + 1];
+    ll h[n + 1][n + 1];
+    ll a[n + 1], pre[n + 1] = {0};
  
     for (int i = 1; i <= n; i++)
     {
@@ -35,7 +35,7 @@ int main()
             }
  
             dp[i][j] = INF;
-            lli curr;
+            ll curr;
             for (int k = h[i][j - 1]; k <= h[i + 1][j]; k++)
             {
  

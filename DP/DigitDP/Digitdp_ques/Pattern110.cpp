@@ -2,8 +2,8 @@
 //BROWNIE TK
 
 #include <bits/stdc++.h>
-typedef long long int lli;
-typedef unsigned long long int ulli;
+typedef long long int ll;
+typedef unsigned long long int ull;
 typedef long double ldb;
 
 #define pb push_back
@@ -23,9 +23,9 @@ typedef long double ldb;
 #define F first
 #define S second
 
-#define pll pair<lli, lli>
+#define pll pair<ll, ll>
 #define pii pair<int, int>
-#define pil pair<int, lli>
+#define pil pair<int, ll>
 
 #define forz(i, n) for (int i = 0; i < n; i++)
 #define fore(i, m, n) for (int i = m; i <= n; i++)
@@ -65,7 +65,7 @@ typedef long double ldb;
 #define p4(a, b, c, d) cout << a << " " << b << " " << c << " " << d << endl
 
 #define oset tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update>
-#define osetlli tree<lli, null_type, less<lli>, rb_tree_tag, tree_order_statistics_node_update>
+#define osetlli tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update>
 
 
 #define ofk order_of_key
@@ -73,9 +73,9 @@ typedef long double ldb;
 using namespace std;
 
 
-lli power(lli x, lli y, lli p)
+ll power(ll x, ll y, ll p)
 {
-    lli res = 1;
+    ll res = 1;
     x = x % p;
     while (y > 0)
     {
@@ -86,11 +86,11 @@ lli power(lli x, lli y, lli p)
     }
     return res;
 }
-lli modi(lli a, lli m) { return power(a, m - 2, m); }
+ll modi(ll a, ll m) { return power(a, m - 2, m); }
 
 string s;
-lli dp[65][4][2];
-lli solve(int pos, int st, int t)
+ll dp[65][4][2];
+ll solve(int pos, int st, int t)
 {
     if (pos == int(s.si))
         return (st == 3);
@@ -101,7 +101,7 @@ lli solve(int pos, int st, int t)
     int lim = t ? s[pos] - '0' : 1;
     int nt = t;
 
-    lli ans = 0;
+    ll ans = 0;
     for (int i = 0; i <= lim; i++)
     {
         if (i != lim)
@@ -135,10 +135,10 @@ lli solve(int pos, int st, int t)
     }
     return dp[pos][st][t]=ans;
 }
-string tobin(lli n)
+string tobin(ll n)
 {
     string temp="";
-    for(lli i=61;i>=0;i--)
+    for(ll i=61;i>=0;i--)
     {
         if((1ll<<i)&n)temp+='1';
         else temp+='0';
@@ -149,7 +149,7 @@ int main()
 {
     kira;
     int nc;
-    lli l,r;
+    ll l,r;
     cin>>nc;
     while(nc--)
     {
@@ -157,10 +157,10 @@ int main()
         l--;
         memset(dp,-1,sizeof(dp));
         s=tobin(l);
-        lli y=solve(0,0,1);
+        ll y=solve(0,0,1);
         memset(dp,-1,sizeof(dp));
         s=tobin(r);
-        lli x=solve(0,0,1);
+        ll x=solve(0,0,1);
         cout<<x-y<<endl;
     }
     return 0;

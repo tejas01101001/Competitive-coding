@@ -60,16 +60,16 @@ vector<int> prufer_code()
 
 //====================DECODE===========================
 
-vector<pll> prufer_decode(vector<lli> code)
+vector<pll> prufer_decode(vector<ll> code)
 {
-    lli n = code.si + 2;
-    vector<lli> deg(n + 1, 1);
+    ll n = code.si + 2;
+    vector<ll> deg(n + 1, 1);
     for (auto x : code)
         deg[x]++;
-    lli in = 1;
+    ll in = 1;
     while (deg[in] != 1)
         in++;
-    lli leaf = in;
+    ll leaf = in;
     vector<pll> edges;
     for (auto x : code)
     {

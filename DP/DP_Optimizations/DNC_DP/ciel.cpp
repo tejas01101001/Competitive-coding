@@ -2,10 +2,10 @@
 //https://codeforces.com/problemset/problem/321/E 
 
 const int N = 4e3 + 5;
-lli dp_prev[N], dp_curr[N];
-lli a[N][N], mat[N][N];
+ll dp_prev[N], dp_curr[N];
+ll a[N][N], mat[N][N];
 
-lli cost(int x, int i)
+ll cost(int x, int i)
 {
     return mat[i][i] + mat[x - 1][x - 1] - mat[i][x - 1] - mat[x - 1][i];
 }
@@ -34,7 +34,7 @@ int main()
 {
     kira;
 
-    lli n, k;
+    ll n, k;
     cin >> n >> k;
 
     memset(dp_curr, 0, sizeof(dp_curr));

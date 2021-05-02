@@ -1,7 +1,7 @@
 
-lli power(lli x, lli y, lli p)
+ll power(ll x, ll y, ll p)
 {
-	lli res = 1;
+	ll res = 1;
 	x = x % p;
 	while (y > 0)
 	{
@@ -13,7 +13,7 @@ lli power(lli x, lli y, lli p)
 	return res;
 }
 
-lli modi(lli a, lli m)
+ll modi(ll a, ll m)
 {
 	return power(a, m - 2, m);
 }

@@ -7,9 +7,9 @@ Operation 2:Sum over a interval [l,r)
 >Array is zero based here 
 >Actual array stored in t[n] to t[2n-1]
 
-const lli N =          // limit for array size
-lli n;                 // array size
-lli t[2 * N];
+const ll N =          // limit for array size
+ll n;                 // array size
+ll t[2 * N];
  
 void build()
 {   // build the tree
@@ -17,15 +17,15 @@ void build()
         t[i] = t[i << 1] + t[i << 1 | 1];
 }
  
-void modify(lli p, lli value)
+void modify(ll p, ll value)
 {   // set value at position p
     for (t[p += n] = value; p > 1; p >>= 1)
         t[p >> 1] = t[p] + t[p ^ 1];
 }
  
-lli query(lli l, lli r)
+ll query(ll l, ll r)
 {   // sum on interval [l, r]
-    lli res = 0;
+    ll res = 0;
     r++;
     for (l += n, r += n; l < r; l >>= 1, r >>= 1)
     {
@@ -67,7 +67,7 @@ which can be shown to above tree .Hence the above code works
 Operation 1:Add a value to a range 
 Operation 2:Compute an element at some pos;
 
-void modify(lli l,lli r,lli value) 
+void modify(ll l,ll r,ll value) 
 {
     for (l += n, r += n; l < r; l >>= 1, r >>= 1)
     {
@@ -78,9 +78,9 @@ void modify(lli l,lli r,lli value)
     }
 }
 
-lli query(lli p) 
+ll query(ll p) 
 {
-    lli res = 0;
+    ll res = 0;
     for (p += n; p > 0; p >>= 1)
         res += t[p];
     return res;

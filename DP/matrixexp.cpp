@@ -25,18 +25,18 @@ as the f(a)=0 for a<0
 
 
 const int ms=matrixsize;
-void mul(lli a[ms][ms],lli b[ms][ms])
+void mul(ll a[ms][ms],ll b[ms][ms])
 {
-  lli t[ms][ms]={0};
+  ll t[ms][ms]={0};
   forz(i,ms)forz(j,ms)forz(k,ms)
     t[i][j]=(t[i][j]+a[i][k]*b[k][j]);
   forz(i,ms)forz(j,ms)
     a[i][j]=t[i][j];
 }
 
-lli matpow(lli F[ms][ms],lli n)
+ll matpow(ll F[ms][ms],ll n)
 {
-  lli C[ms][ms]={{a,b,c},{1,0,0},{1,0,0}};
+  ll C[ms][ms]={{a,b,c},{1,0,0},{1,0,0}};
   if(n==1)
     return (F[0][0]*f(2)+F[0][1]*f(1)+F[0][2]*f(0));
   matpow(F,n/2);
@@ -45,9 +45,9 @@ lli matpow(lli F[ms][ms],lli n)
   return (F[0][0]*f(2)+F[0][1]*f(1)+F[0][2]*f(0));
 }
 
-lli findn(lli n)
+ll findn(ll n)
 {
-  lli C[ms][ms]={{a,b,c},{1,0,0},{1,0,0}};
+  ll C[ms][ms]={{a,b,c},{1,0,0},{1,0,0}};
   return matpow(C,n-2);
 }
 
@@ -87,15 +87,15 @@ Now, using the above process, we can generate the objective matrix C as follows:
 IMPLEMENTATION USING STRUCTURES.
 struct matrix
 {
-    vector <vector <lli>>m;
+    vector <vector <ll>>m;
 };
-void msi(matrix &m,lli a,lli b)
+void msi(matrix &m,ll a,ll b)
 {
     m.m.resize(a);
     forz(i,a)
        m.m[i].resize(b);
 }
-void minit(matrix &m,lli x)
+void minit(matrix &m,ll x)
 {
     forz(i,m.m.size())
        forz(j,m.m[0].size())
@@ -115,7 +115,7 @@ matrix mul(matrix m1,matrix m2)
       }
       return m3;
 }
-matrix mexp(matrix &mx,lli p)
+matrix mexp(matrix &mx,ll p)
 {
    matrix res;
    msi(res,mx.m.size(),mx.m.size());
@@ -135,7 +135,7 @@ matrix mexp(matrix &mx,lli p)
 int main()
 {
     kira;
-    lli n;
+    ll n;
     cin>>n;
     matrix ans;
     msi(ans,3,3);
@@ -148,7 +148,7 @@ int main()
         ans.m[i][i-1]=1;
     }
     ans=mexp(ans,n);
-    lli res=ans.m[0][0];
+    ll res=ans.m[0][0];
     cout<<res;
     return 0;
 }

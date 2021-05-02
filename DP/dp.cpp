@@ -151,7 +151,7 @@ for(int i=1;i<=n;i++)
 }
 
 9)No of distinct subseq of length n:
-lli a[n+1][n+1]={0};
+ll a[n+1][n+1]={0};
 a[i][j]:
 first dimmension for length of subseq
 second for length of prefix of string
@@ -162,7 +162,7 @@ forz(i,n+1)
 }
 for(int i=1;i<=n;i++)
 {
-   vector<lli>l(256,-1);
+   vector<ll>l(256,-1);
    //256 no of chars
    for(int j=1;j<=n;j++)
    {
@@ -236,7 +236,7 @@ for(int i=1;i<=n;i++)
 dp[w+1];
 for(int i=0;i<n;i++)
 {
-	lli wt,v;
+	ll wt,v;
 	cin>>wt>>v;
 	for(int rem=w-wt,rem>=0;rem--)
 	{
@@ -247,15 +247,15 @@ ans=maxe(dp,dp+w+1);
 
 >>Alternative:O(nv)
 
-lli wt[n+1],val[n+1];
- lli s=0;
+ll wt[n+1],val[n+1];
+ ll s=0;
  for(int i=1;i<=n;i++)
  {
    cin>>wt[i]>>val[i];
    s+=val[i];
  }
- lli INF=1e18+5;
- vector<lli>dp(s+1,INF);
+ ll INF=1e18+5;
+ vector<ll>dp(s+1,INF);
  dp[0]=0;
  //dp[i] the min total weight of items with total value i
  for(int i=1;i<=n;i++)
@@ -265,11 +265,11 @@ lli wt[n+1],val[n+1];
      dp[j]=min(dp[j],dp[j-val[i]]+wt[i]);
    }
  }
- lli ans=0;
+ ll ans=0;
  forz(i,s+1)
  {
    if(dp[i]<=w){
-     ans=max(ans,lli(i));}
+     ans=max(ans,ll(i));}
  }
 
 13)

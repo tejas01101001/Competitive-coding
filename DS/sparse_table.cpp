@@ -6,11 +6,11 @@ void log_table()
         tlog[i] = tlog[i / 2] + 1;
 }
 
-vector<vector<lli>> sparse_table(vector<lli> &a)
+vector<vector<ll>> sparse_table(vector<ll> &a)
 {
     int n = int(a.si);
     int k = tlog[n] + 1;
-    vector<vector<lli>> sparse(k, vector<lli>(n));
+    vector<vector<ll>> sparse(k, vector<ll>(n));
 
     sparse[0] = a;
     for (int row = 1; row < k; row++)
@@ -23,7 +23,7 @@ vector<vector<lli>> sparse_table(vector<lli> &a)
 
     return sparse;
 }
-lli query(vector<vector<lli>> &v, int l, int r)
+ll query(vector<vector<ll>> &v, int l, int r)
 {
     //minimum of a range [L,R] can be computed with:
     //zero based array
@@ -34,12 +34,12 @@ lli query(vector<vector<lli>> &v, int l, int r)
 int main()
 {
     kira;
-    lli n;
+    ll n;
     cin >> n;
-    vector<lli> a(n);
+    vector<ll> a(n);
     forz(i, n) cin >> a[i];
     log_table();
-    vector<vector<lli>> v = sparse_table(a);
+    vector<vector<ll>> v = sparse_table(a);
     int q, l, r;
     cin>>q;
     while(q--)

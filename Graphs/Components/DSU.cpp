@@ -4,21 +4,21 @@
 4)Always connect the representative of the smaller set to the representative of the larger set . Using this strategy, the length of any chain will be O(logn), so we can find the representative of any element efficiently by following the corresponding chain.
 5)UNION BY SIZE
 const int N=
-lli parent[N];
-lli siz[N];
-void make(lli v)
+ll parent[N];
+ll siz[N];
+void make(ll v)
 {
   parent[v]=v;
   siz[v]=1;
 }
 
-lli find(lli v)
+ll find(ll v)
 {
   if(v==parent[v])return v;
   return parent[v]=find(parent[v]);
 }
 
-void merge(lli a,lli b)
+void merge(ll a,ll b)
 {
   a=find(a);
   b=find(b);
@@ -30,7 +30,7 @@ void merge(lli a,lli b)
   }
 }
 // range merge [x,y]
-void merge2(lli x,lli y)
+void merge2(ll x,ll y)
 {
     auto it=s.ub(x);
     while(it!=s.end()&&*it<=y)
@@ -42,19 +42,19 @@ void merge2(lli x,lli y)
     }
 }
 6)UNION BY RANK(depth)
-void make(lli v)
+void make(ll v)
 {
   parent[v]=v;
   rank[v]=0;
 }
 
-lli find(lli v)
+ll find(ll v)
 {
   if(v==parent[v])return v;
   return parent[v]=find(parent[v]);
 }
 
-void merge(lli a,lli b)
+void merge(ll a,ll b)
 {
   a=find(a);
   b=find(b);

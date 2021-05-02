@@ -5,14 +5,14 @@ Game Theory
 eg:mex({0,1,4,7,12})=2
 4)The Grundy Number/ nimber is equal to 0 for a game that is lost immediately by the first player, and is equal to Mex of the nimbers of all possible next positions for any other game.
 
-lli mex(unordered_set<lli>s)
+ll mex(unordered_set<ll>s)
 {
-  lli Mex=0;
+  ll Mex=0;
   while(s.find(Mex)!=s.end())Mex++;
   return Mex;
 }
 
-lli grundy(lli n)
+ll grundy(ll n)
 {
   //if only 1,2,3 stones can be removed from a pile
   for(int i=0;i<=3;i++)
@@ -21,7 +21,7 @@ lli grundy(lli n)
   if(g[n]!=-1)
    return(g[n]);
 
-  unordered_set<lli>s;
+  unordered_set<ll>s;
   for(int i=1;i<=3;i++)s.insert(grundy(n-i,g));
   g[n]=mex(s);
   return g[n];
@@ -29,7 +29,7 @@ lli grundy(lli n)
 
 int main()
 {
-  lli g[n+1];
+  ll g[n+1];
   memset(g,-1,sizeof(g));
   return 0;
 }

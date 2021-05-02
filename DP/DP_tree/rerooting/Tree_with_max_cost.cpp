@@ -2,11 +2,11 @@
 //https://codeforces.com/contest/1092/submission/74304035
 
 const int N = 2e5 + 5;
-vector<lli> adj[N];
-lli sum[N], n;
-lli a[N];
-lli ans = 0, res = 0;
-void dfs(int s, int e = -1, lli h = 0)
+vector<ll> adj[N];
+ll sum[N], n;
+ll a[N];
+ll ans = 0, res = 0;
+void dfs(int s, int e = -1, ll h = 0)
 {
     res += a[s] * h;
     sum[s] = a[s];

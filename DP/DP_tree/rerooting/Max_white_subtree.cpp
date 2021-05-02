@@ -12,7 +12,7 @@ void dfs(int s,int e)
         dp[s]+=max(0ll,dp[u]);
     }
 }
-void dfs2(int s,int e,lli ans)
+void dfs2(int s,int e,ll ans)
 {
     res[s]=ans;
     for(auto u:adj[s])

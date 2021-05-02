@@ -2,10 +2,10 @@
 //https://cses.fi/problemset/task/2086
 
 const int N = 3e3 + 5;
-lli dp_prev[N], dp_curr[N];
-lli a[N], pre[N];
+ll dp_prev[N], dp_curr[N];
+ll a[N], pre[N];
 
-lli cost(int x, int i)
+ll cost(int x, int i)
 {
     return (pre[i] - pre[x - 1]) * (pre[i] - pre[x - 1]);
 }
@@ -34,7 +34,7 @@ int main()
 {
     kira;
 
-    lli n, k;
+    ll n, k;
     cin >> n >> k;
 
     memset(dp_curr, 0, sizeof(dp_curr));

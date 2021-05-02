@@ -5,12 +5,12 @@ CYCLE DETECTION
 NOTE:If the graph is undirected, the edge to parent is not considered
 
 const int N =
-vector<lli> color(N, 0),pred(N);
-vector<lli> adj[N];
-lli cycst, cycen;
-lli n, m;
+vector<ll> color(N, 0),pred(N);
+vector<ll> adj[N];
+ll cycst, cycen;
+ll n, m;
 
-bool dfs(lli s)
+bool dfs(ll s)
 {
     color[s] = 1;
     for (auto u : adj[s])
@@ -48,9 +48,9 @@ void findcyc()
         cout << "IMPOSSIBLE";
         return;
     }
-    vector<lli> path;
+    vector<ll> path;
     path.pb(cycst);
-    for (lli v = cycen; v != cycst; v = pred[v])
+    for (ll v = cycen; v != cycst; v = pred[v])
         path.pb(v);
     path.pb(cycst);
     reverse(all(path));

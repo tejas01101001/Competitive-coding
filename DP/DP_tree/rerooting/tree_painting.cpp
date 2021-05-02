@@ -15,7 +15,7 @@ void dfs(int s,int e)
     return;
 }
 
-void dfs2(int s,int e,lli ans)
+void dfs2(int s,int e,ll ans)
 {
     for(auto u:adj[s])
     {
