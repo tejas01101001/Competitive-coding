@@ -9,9 +9,9 @@ struct trie
         cnt = 0;
     }
 };
- 
+
 trie *root;
- 
+
 void insert(string s)
 {
     trie *curr = root;
