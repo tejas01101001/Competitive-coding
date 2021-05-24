@@ -1,10 +1,22 @@
+// With DSU on tree, we can answer queries of this type:
+// How many vertices in the subtree of vertex v have some property in O(nlog n) time (for all queries)?
+
+
 const int N = 2e5 + 5;
 int sz[N];
 bool big[N];
 int cnt[N];
 int col[N];
 vector<int> adj[N];
-
+int sz[maxn];
+void getsz(int v, int p){
+sz[v] = 1; // every vertex has itself in its subtree
+for(auto u : g[v])
+if(u != p){
+getsz(u, v);
+sz[v] += sz[u]; // add size of child u to its parent(v)
+}
+}
 
 // Function to be changed according to question
 void add(int curr, int prev, int val)
