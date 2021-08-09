@@ -1,4 +1,8 @@
-1)MAXXOR AND MINXXOR
+# Tries for bits of numbers
+
+## MAXXOR AND MINXXOR
+
+```C++
 typedef struct data
 {
     data *bit[2];
@@ -95,10 +99,11 @@ int main()
     }
     return 0;
 }
+```
 
-2)MAXXOR SUBARRAY:
+## MAXXOR SUBARRAY:
+
 Insert prefix xors in the trie and query for maxxor 
 for each subarray ending with a[i]
 
-https://cses.fi/problemset/result/278806/
-
+[Maximum subarray xor](https://cses.fi/problemset/result/278806/)
