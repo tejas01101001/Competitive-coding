@@ -1,3 +1,10 @@
+# Treaps
+
+[Cut and Paste](https://cses.fi/problemset/task/2072)   
+[Substring Reversals](https://cses.fi/problemset/task/2073)   
+[Reversal Sums](https://cses.fi/problemset/task/2074)
+
+```C++
 // Treap is a data structure that stores pairs (X, Y) in a binary tree.
 // Binary search tree by X and a Binary heap by Y. 
 // Node contains values (X0, Y0)
@@ -178,3 +185,4 @@ void print(node *treap)
     cout << treap->sum << " ";
     print(treap->right);
 }
+```
