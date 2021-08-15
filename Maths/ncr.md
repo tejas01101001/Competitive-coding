@@ -1,8 +1,11 @@
+# Factorial and nCr
+
+```C++
 const int N = 1e6 + 5;
 ll fac[N], invfac[N];
 void fact()
 {
-    invfac[0]=fac[0] = 1;
+    invfac[0] = fac[0] = 1;
     for (int i = 1; i < N; i++)
     {
         fac[i] = (fac[i - 1] * i) % mod;
@@ -17,6 +20,7 @@ ll ncr(ll a, ll b)
         return 0;
     return ((fac[a] * invfac[b]) % mod * invfac[a - b]) % mod;
 }
+
 int main()
 {
     kira;
@@ -30,3 +34,4 @@ int main()
     }
     return 0;
 }
+```
