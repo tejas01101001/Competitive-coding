@@ -42,3 +42,4 @@ int main()
 2. Then for each sub-game, calculate the Grundy Number at that position.
 3. Then calculate the XOR of all the calculated Grundy Numbers.
 4. If the XOR value is non-zero, then the player who is going to make the turn (First Player) will win else he is destined to lose, no matter what.
+
