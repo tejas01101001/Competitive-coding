@@ -1,4 +1,5 @@
 # Game Theory
+
 1. **Nim-Sum:** The cumulative XOR value of the number of coins/stones in each piles/heaps at any point of the game is called Nim-Sum at that point.
 2. Optimal strategy for each player is to make the Nim Sum for his opponent zero in each of their turn
 3. **MEX:** Minimum excludant’ a.k.a ‘Mex’ of a set of numbers is the smallest non-negative number not present in the set.    
