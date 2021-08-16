@@ -2,8 +2,8 @@
 int phi[105][26];
 int match(string t, string s)
 {
-    int m = int(t.si);
-    int n = int(s.si);
+    int m = int(t.size());
+    int n = int(s.size());
     for (int i = n - m; i < n; i++)
     {
         if (s[i] != t[i + m - n])
@@ -11,19 +11,21 @@ int match(string t, string s)
     }
     return 1;
 }
+
 int presuf(string t, string s)
 {
-    int m = int(t.si);
-    for (int i = int(s.si); i >= 1; i--)
+    int m = int(t.size());
+    for (int i = int(s.size()); i >= 1; i--)
     {
         if (match(t.substr(0, i), s))
             return i;
     }
     return 0;
 }
+
 void dfa(string s)
 {
-    int m = int(s.si);
+    int m = int(s.size());
     vector<string> v(m + 1, "");
     for (int i = 1; i <= m; i++)
     {
