@@ -1,3 +1,5 @@
+# Ternary Search
+```C++
 ll ternary(int lo, int hi)
 {
     //fucntion f should be unimodal
@@ -16,3 +18,4 @@ ll ternary(int lo, int hi)
         ans = min(ans, func(i));
     return ans;
 }
+```
